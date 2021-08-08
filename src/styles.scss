@@ -1,0 +1,67 @@
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "Arial";
+}
+.info {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+textarea{
+    border: 1px solid #888;
+    border-radius: 8px;
+}
+
+.reminder{
+  color: black;
+  font-style: italic;
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+@keyframes moveArrow {
+  0% {right: 5vh;}
+  50% {right: 1vh;}
+  100% {right: 5vh;}
+}
+
+.fixedArrow{
+  animation-name: moveArrow;
+  animation-duration: 1s;
+  position: fixed;
+  bottom: 5vh;
+  right: 5vh;
+  animation-iteration-count: 2;
+}
+
+.styleButton {
+  border-radius: 1vh;
+  border: none;
+  background-color: black;
+  color: white;
+  font-size: 3vh;
+  padding: 1vh;
+}
+
+.styleButton:active{
+  background-color: DimGray;
+  transition: background-color 0.1s;
+  -webkit-transition: background-color 0.1s;
+}
