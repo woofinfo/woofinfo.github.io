@@ -76,7 +76,7 @@ const IndexPage = () => {
 
   const storeAnswer = async (steps) => {
     //steps is how many to go backwards or forwards
-    await delay(100);
+     delay(100);
     if (currentAnswer!==""&&steps===1){
       let cloneJson = copyJSON(answers);
       cloneJson[number] = currentAnswer;
@@ -88,9 +88,7 @@ const IndexPage = () => {
         document.getElementById("Current Question").focus();
       }
     }else if (steps===-1){
-      if (number === 1){
-        console.log("tried go to 0")
-      }else {
+      if (number !== 1){
         setNumber(number+steps);
         setUnfilledAnswer(false);
       }
@@ -119,7 +117,8 @@ const IndexPage = () => {
         newText = newText.concat("**").concat(allQuestions[questionNumber].header).concat("** \n\n");
         currHeader = allQuestions[questionNumber].header;
       }
-      newText = newText.concat(questionNumber).concat(") ").concat(allQuestions[questionNumber].question).concat("\n\n").concat(answers[questionNumber]).concat("\n\n")
+      var currQuestion = allQuestions[questionNumber].question.replace(/<[^>]*>/g, '');
+      newText = newText.concat(questionNumber).concat(") ").concat(currQuestion).concat("\n\n").concat(answers[questionNumber]).concat("\n\n")
 
     }
     return (
@@ -169,7 +168,7 @@ const IndexPage = () => {
     <div >
     <Helmet title="Breed Survey" defer={false} />
       {formElement()}
-      <div className="fixedArrow">Arrow Keys or Button to Navigate<i className="arrow right"></i><i className="arrow right"></i></div>
+      <div className="fixedArrow">Arrow Keys or Buttons to Navigate<i className="arrow right"></i><i className="arrow right"></i></div>
 
     </div>
   )
