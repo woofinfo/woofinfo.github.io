@@ -58,9 +58,11 @@ textarea{
   color: white;
   font-size: 3vh;
   padding: 1vh;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
-.styleButton:active{
+.styleButton:hover{
   background-color: DimGray;
   transition: background-color 0.1s;
   -webkit-transition: background-color 0.1s;

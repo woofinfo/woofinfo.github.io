@@ -52,8 +52,6 @@ const IndexPage = () => {
   const goBackOne = () => {
     if (number!==1){
       setNumber(number-1)
-    }else{
-      console.log("tried to go back to 0")
     }
   }
 
@@ -61,7 +59,7 @@ const IndexPage = () => {
     if (answers.hasOwnProperty(number)){
       setCurrentAnswer(answers[number]);
     }
-  }, [number, answers])
+  }, [number])
 
   const copyJSON = (obj) => {
     return JSON.parse(JSON.stringify(obj))
@@ -149,7 +147,8 @@ const IndexPage = () => {
                       placeholdertext={currentAnswer}
                       value={currentAnswer}
                       onChange={(e) => {setCurrentAnswer(e.target.value)}}></textarea><br />
-            <button onClick={(e) => {e.preventDefault(); storeAnswer();}}  aria-label="Next Question" className="styleButton">Next Question</button>
+            {number!==1?<button onClick={(e) => {e.preventDefault(); goBackOne();}}  aria-label="Previous Question" className="styleButton">Previous Question</button>:<div></div>}
+            <button onClick={(e) => {e.preventDefault(); goBackOne();}}  aria-label="Next Question" className="styleButton">Next Question</button>
           </form>
         </div>
       )
@@ -163,7 +162,7 @@ const IndexPage = () => {
     <div >
     <Helmet title="Breed Survey" defer={false} />
       {formElement()}
-      <div className="fixedArrow">Arrow or Button to Advance<i className="arrow right"></i><i className="arrow right"></i></div>
+      <div className="fixedArrow">Arrow Keys or Button to Navigate<i className="arrow right"></i><i className="arrow right"></i></div>
 
     </div>
   )
