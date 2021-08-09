@@ -109,6 +109,10 @@ const IndexPage = () => {
     });
   }
 
+  const getPrefilledLink = (text) => {
+    return "https://www.reddit.com/r/dogs/submit?selftext=true&title="+encodeURIComponent("Breed Survey")+"&text="+encodeURIComponent(text);
+  }
+
   const getCopyPaste = () => {
     var newText = "";
     var currHeader = ""
@@ -131,6 +135,7 @@ const IndexPage = () => {
         placeholdertext = {newText}>
         </textarea>
         <button onClick={() => {getCopyPasteText(newText)}} className="styleButton">Copy Text?</button><br /><br />
+        <button className="styleButton"><a href={getPrefilledLink(newText)} target="_blank" rel="noreferrer noopener">Post to /r/dogs?</a></button><br /><br />
         {copySucceeded===false?<div>Copy failed in this browser</div>:<div></div>}
 
       </div>
