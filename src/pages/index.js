@@ -43,7 +43,7 @@ const IndexPage = () => {
   const isLeftPressed = useKeyPress("ArrowLeft");
 
   const goBackOne = () => {
-    if (viewFullForm==false){
+    if (viewFullForm===false){
       storeAnswerAndStep(-1);
     }else{
       setFinishedFullform(false);
@@ -51,7 +51,7 @@ const IndexPage = () => {
   }
 
   React.useEffect(() => {
-    if (isRightPressed === true&&viewFullForm==false){
+    if (isRightPressed === true&&viewFullForm===false){
       storeAnswerAndStep(1);
     }
   }, [isRightPressed])
@@ -138,11 +138,11 @@ const IndexPage = () => {
         currHeader = allQuestions[questionNumber].header;
       }
       var currQuestion = allQuestions[questionNumber].question.replace(/<[^>]*>/g, '');
-      newText = newText.concat(questionNumber).concat(") ").concat(currQuestion).concat("\n\n").concat(answers[questionNumber]).concat("\n\n")
+      newText = newText.concat(questionNumber).concat(") ").concat(currQuestion).concat("\n\n - ").concat(answers[questionNumber]).concat("\n\n")
 
     }
     return (
-      <div className="info">
+      <div className="infoFullView">
         <form onSubmit={(e) => {e.preventDefault()}}>
           <label htmlFor="postTitle">Post Title</label>
           <input type="text" id="postTitle" value={postTitle} onChange={(e) => {setPostTitle(e.target.value)}} placeholdertext = {postTitle}></input>
@@ -305,8 +305,8 @@ const IndexPage = () => {
 
   return (
     <div className="infoFullView">
+    <h1>What Breed is Right For Me?</h1>
     <Helmet title="What Breed is Right For Me?" defer={false} />
-      <h1>What Breed is Right For Me?</h1>
       {viewFullForm===false?singleViewForm():fullForm()}
     </div>
   )
