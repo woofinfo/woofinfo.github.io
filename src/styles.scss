@@ -3,6 +3,8 @@
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     font-family: "Arial";
+    margin: 0;
+
 }
 .info {
   margin: 0;
@@ -11,6 +13,10 @@
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.infoFullView {
   text-align: center;
 }
 
@@ -70,4 +76,21 @@ textarea{
 
 .styleButton a{
   color: white;
+}
+
+textarea {
+    width: 100%;
+    max-width: 500px;
+    min-height: 75px;
+    outline: none;
+    resize: none;
+    border: 1px solid grey;
+}
+
+.unfilledQuestion {
+  background-color: red;
+}
+label {
+  display: block;
+  padding: 20px;
 }
