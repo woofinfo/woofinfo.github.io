@@ -169,7 +169,6 @@ const IndexPage = () => {
       var header = allQuestions[number].header;
       return (
         <div className="info">
-          <h1>What Breed is Right For Me?</h1>
           <h2>{header}</h2>
           {unfilledAnswerResponse()}
           <form>
@@ -308,6 +307,7 @@ const IndexPage = () => {
     <h1>What Breed is Right For Me?</h1>
     <Helmet title="What Breed is Right For Me?" defer={false} />
       {viewFullForm===false?singleViewForm():fullForm()}
+      {fixedArrowButton()}
     </div>
   )
 }
